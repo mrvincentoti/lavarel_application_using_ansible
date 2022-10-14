@@ -11,10 +11,12 @@ pipeline {
         }
         stage('Display Test Credentials') {
             environment {
-                MYAPP_SSH_PRIVATE_KEY = credentials('dockerpass')
+                DOCKER_PASS = credentials('dockerpass')
             }
             steps {
-                sh 'echo MYAPP_SSH_PRIVATE_KEY'
+                sh '''
+                    echo "${DOCKER_PASS}"
+                '''
             }
         }
     }
