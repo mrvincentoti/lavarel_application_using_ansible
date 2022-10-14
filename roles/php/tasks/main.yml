@@ -100,14 +100,14 @@
   mysql_db: name={{DB_DATABASE}} state=present
 
 - name: Create MySQL User
-  mysql_user: name={{DB_USERNAME}} password={{DB_PASSWORD}} priv={{DB_DATABASE}}.*:ALL state=present
+  mysql_user: name=poll1 password={{DB_PASSWORD}} priv=poll1.*:ALL state=present
   #when: dbpwd.changed
 
 - name: set DB_DATABASE
-  lineinfile: dest=/var/www/html/{{ vhost_name }}/.env regexp='^DB_DATABASE=' line=DB_DATABASE={{DB_DATABASE}}
+  lineinfile: dest=/var/www/html/{{ vhost_name }}/.env regexp='^DB_DATABASE=' line=DB_DATABASE=poll1
 
 - name: set DB_USERNAME
-  lineinfile: dest=/var/www/html/{{ vhost_name }}/.env regexp='^DB_USERNAME=' line=DB_USERNAME={{DB_USERNAME}}
+  lineinfile: dest=/var/www/html/{{ vhost_name }}/.env regexp='^DB_USERNAME=' line=DB_USERNAME=poll1
 
 - name: set DB_PASSWORD
   lineinfile: dest=/var/www/html/{{ vhost_name }}/.env regexp='^DB_PASSWORD=' line=DB_PASSWORD={{DB_PASSWORD}}
