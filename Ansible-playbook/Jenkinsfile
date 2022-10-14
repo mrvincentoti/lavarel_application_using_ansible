@@ -1,0 +1,18 @@
+pipeline {
+    agent any
+ 
+    options {
+        skipDefaultCheckout(true)
+    }
+ 
+    stages {
+        stage('Display Test Credentials') {
+            environment {
+                MYAPP_SSH_PRIVATE_KEY = credentials('dockerpass')
+            }
+            steps {
+                sh 'echo MYAPP_SSH_PRIVATE_KEY'
+            }
+        }
+    }
+}

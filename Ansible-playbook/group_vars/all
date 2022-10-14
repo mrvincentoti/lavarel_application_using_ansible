@@ -1,9 +1,7 @@
 php_version: 8.0
 username: ubuntu
-vhost_name: lavarel_project
+vhost_name: poll_analytics
 server_document_root: "/var/www/html"
-
-
 
 # Variables for Role Certbot certs.
 certbot_create_if_missing: false
@@ -14,5 +12,8 @@ certbot_create_standalone_stop_services:
   - apache2
 
 apache_vhosts:
-  - {servername: "php.darvein.xyz", serveralias: "www.php.darvein.xyz", documentroot: "/var/www/html/lavarel_project/public"}
-
+  - {
+      servername: "php.darvein.xyz",
+      serveralias: "www.php.darvein.xyz",
+      documentroot: "/var/www/html/poll_analytics/public",
+    }
