@@ -5,7 +5,7 @@ pipeline {
         stage('checkout') {
            steps {
              
-                git 'https://github.com/mrvincentoti/lavarel_application_using_ansible.git'
+                git branch: 'main', url: 'https://github.com/mrvincentoti/lavarel_application_using_ansible.git'
              
           }
         }
