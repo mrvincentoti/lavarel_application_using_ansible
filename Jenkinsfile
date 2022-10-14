@@ -9,7 +9,7 @@ pipeline {
         stage('checkout') {
            steps {
              
-                git branch: 'master', url: 'https://github.com/devops4solutions/Ansible-Sample-Application-Deployment.git'
+                git 'https://github.com/mrvincentoti/lavarel_application_using_ansible.git'
              
           }
         }
