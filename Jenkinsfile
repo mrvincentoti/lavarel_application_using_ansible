@@ -23,7 +23,7 @@ pipeline {
                 DOCKER_PASS = credentials('dockerpass')
             }
             steps {
-               sh "ansible-playbook main.yml -i inventories/dev/hosts --user ubuntu --key-file ~/.ssh/id_rsa -e 'DB_PASSWORD=${DOCKER_PASS}' -e '@configs/dev.yml'"            
+               sh "ansible-playbook main.yml -i inventories/dev/hosts --user ubuntu --key-file ~/.ssh/id_rsa -e 'DB_PASSWORD=${DOCKER_PASS} @configs/dev.yml'"            
             }
         }
         // stage('Display Test Credentials') {
